@@ -500,26 +500,37 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
+
+/* Opcional: Reduce márgenes en párrafos generales dentro de secciones */
+
+
+/* Opcional: ajusta el espacio entre bloques dentro de las secciones */
+
+
 section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 60px 0;
   overflow: clip;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
 .section-title {
-  padding-bottom: 60px;
+  padding-bottom: 0 !important;
   position: relative;
+  margin-bottom: 0.8em !important;
 }
 
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 0.3em !important;
   padding-bottom: 20px;
   position: relative;
 }
@@ -536,7 +547,13 @@ section,
 }
 
 .section-title p {
-  margin-bottom: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0.5em !important;
+}
+
+.section p {
+  margin-top: 0 !important;
+  margin-bottom: 1em !important;
 }
 
 /*--------------------------------------------------------------
@@ -1272,4 +1289,58 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-badge {
+  background-color: #007bff; /* azul profesional */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skill-badge:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  cursor: default;
+}
+
+.skills-block {
+  margin-bottom: 30px; /* separa cada bloque */
+}
+
+.skills-block h3 {
+  margin-bottom: 15px; /* separa el título de las pastillas */
+}
+
+#resume .section-title {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0.1em;
+}
+
+#resume .section-title p {
+  margin-top: 0;
+  margin-bottom: 0.1em;
+}
+
+.social-links a i {
+  font-size: 35px;
+  color: #333; /* Color base */
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block; /* Para que transform funcione bien */
+}
+
+.social-links a:hover i {
+  color: #0077b5; /* Color al pasar el ratón */
+  transform: scale(1.2); /* Aumenta tamaño un 20% */
 }
