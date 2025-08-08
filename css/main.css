@@ -186,24 +186,35 @@ h6 {
 }
 
 .header .social-links a {
-  font-size: 16px;
+  font-size: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
   color: var(--default-color);
-  margin: 0 2px;
-  border-radius: 50%;
+  margin: 0 8px;
+  border-radius: 0;
   text-align: center;
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: auto;
   transition: 0.3s;
 }
 
 .header .social-links a:hover {
-  color: var(--contrast-color);
-  background: var(--accent-color);
+  color: var(--accent-color);
+  background: none;
+  transform: scale(1.2);
 }
+
+.social-links i {
+  background: none;
+  fill: none; /* Elimina relleno del SVG */
+}
+
+.social-links svg {
+  background: none;
+}
+
+
 
 @media (min-width: 1200px) {
 
@@ -1267,9 +1278,3 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
