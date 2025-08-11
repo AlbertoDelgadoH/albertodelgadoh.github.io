@@ -40,15 +40,15 @@
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- LOGO ADH -->
-      <!-- <img src="assets/img/logo.png" alt="Logo ADH"> -->
       <h1 class="sitename">Alberto Delgado Hernández</h1>
     </a>
 
     <div class="social-links text-center">
-      <a href="https://www.facebook.com/profile.php?id=61575299738661" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/alber_skateland/" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
       <a href="mailto:albertodh1200@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
+      <a href="https://www.instagram.com/alber_skateland/" class="instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61575299738661" class="facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+    <a href="https://github.com/AlbertoDelgadoH" class="github" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+
     </div>
 
 
@@ -59,8 +59,11 @@
         <li><a href="#skills"><i class="bi bi-gear navicon"></i>Habilidades</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>Currículum</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i>Portafolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>Servicios</a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contacto</a></li>
+        <div>
+          <!-- LOGO ADH en en el centro que ocupe lo ancho de la barra de naveación en la parte baja -->
+          <img src="assets/img/logo.png" alt="Logo ADH" style="width: 60%; height: auto; display: block; margin: 0 auto;">
+        </div>
       </ul>
     </nav>
 
@@ -111,10 +114,27 @@
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>25</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Especialización:</strong> <span>Inteligencia Artificial y Big Data</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Correo:</strong> <span>albertodh1200@gmail.com</span></li>
-                </ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span id="edad"></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Especialización:</strong> <span>Inteligencia Artificial y Big Data</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Correo:</strong> <span>albertodh1200@gmail.com</span></li>
+              </ul>
+
+              <script>
+                // Fecha de nacimiento: año, mes (0-11), día
+                const fechaNacimiento = new Date(2000, 1, 1); // 1 febrero 2000
+                const hoy = new Date();
+
+                let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+                const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+
+                // Ajuste si aún no ha cumplido años este año
+                if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                  edad--;
+                }
+
+                document.getElementById("edad").textContent = edad;
+              </script>
+
               </div>
             </div>
           </div>
@@ -362,10 +382,10 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter="*" class="filter-active">Todo</li>
             <li data-filter=".filter-codigo">Código</li>
             <li data-filter=".filter-wordpress">Wordpress</li>
-            <li data-filter=".filter-sites">Sites</li>
+            <li data-filter=".filter-otros">Otros</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -376,8 +396,36 @@
                 <div class="portfolio-info">
                   <h4>Confederación Empresarial de Lanzarote</h4>
                   <p>Proyecto web de la Confederación Empresarial de Lanzarote</p>
+<<<<<<< HEAD
                   <a href="assets/img/portfolio/cel.png" title="Confederacion Empresarial de Lanzarote" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+=======
+                  <a href="assets/img/portfolio/cel.png" title="Proyectos de la Confederación Empresarial de Lanzarote" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+>>>>>>> 1c09b51 (Modificación)
                   <a href="https://proyectoscel.com/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/distortion.png" class="img-fluid" alt="Distortion LNZ">
+                <div class="portfolio-info">
+                  <h4>Distortion LNZ</h4>
+                  <p>Proyecto web de Distortion LNZ</p>
+                  <a href="assets/img/portfolio/distortion.png" title="Distortion LNZ" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://distortionlnz.my.canva.site/distortionpunk" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-wordpress">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/castrillo.png" class="img-fluid" alt="Maribel Castrillo Estudio">
+                <div class="portfolio-info">
+                  <h4>Maribel Castrillo Estudio</h4>
+                  <p>Proyecto web de Maribel Castrillo Estudio</p>
+                  <a href="assets/img/portfolio/castrillo.png" title="Maribel Castrillo Estudio" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://www.mcastrilloestudio.com/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -394,14 +442,41 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
+<<<<<<< HEAD
+=======
+                <img src="assets/img/portfolio/cleverclean.png" class="img-fluid" alt="CleverClean Lanzarote">
+                <div class="portfolio-info">
+                  <h4>CleverClean</h4>
+                  <p>Proyecto web de CleverClean</p>
+                  <a href="assets/img/portfolio/cleverclean.png" title="CleverClean Lanzarote" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://sites.google.com/view/clevercleanlanzarote" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/canaryink.png" class="img-fluid" alt="Canary Ink">
+                <div class="portfolio-info">
+                  <h4>Canary Ink</h4>
+                  <p>Proyecto web de Canary Ink</p>
+                  <a href="assets/img/portfolio/canaryink.png" title="Canary Ink" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://sites.google.com/view/canaryink" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
+              <div class="portfolio-content h-100">
+>>>>>>> 1c09b51 (Modificación)
                 <img src="assets/img/portfolio/construvida.png" class="img-fluid" alt="Construvida">
                 <div class="portfolio-info">
                   <h4>Construvida</h4>
                   <p>Proyecto web de Construvida</p>
-                  <a href="assets/img/portfolio/construvida.png" title="Construvida" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="assets/img/portfolio/construvida.png" title="Construvida Lanzarote" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://www.construvidalanzarote.es/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -430,43 +505,55 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/eculanz.png" class="img-fluid" alt="Eculanz">
+                <img src="assets/img/portfolio/eculanz.png" class="img-fluid" alt="Eculanz Mantenimiento">
                 <div class="portfolio-info">
                   <h4>Eculanz</h4>
                   <p>Proyecto web de Eculanz</p>
-                  <a href="assets/img/portfolio/eculanz.png" title="Eculanz" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/eculanz.png" title="Eculanz Mantenimiento" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="https://sites.google.com/view/eculanz-mantenimiento" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/cintia.png" class="img-fluid" alt="Cintia Gusson Estética">
+                <div class="portfolio-info">
+                  <h4>Cintia Gusson</h4>
+                  <p>Proyecto web de Cintia Gusson</p>
+                  <a href="assets/img/portfolio/cintia.png" title="Cintia Gusson Estética" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://sites.google.com/view/cintia-gusson-estetica" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/gemma.png" class="img-fluid" alt="Gemma Pulgarín Sauras">
                 <div class="portfolio-info">
                   <h4>Gemma</h4>
                   <p>Proyecto web de Gemma Pulgarín Sauras</p>
-                  <a href="assets/img/portfolio/gemma.png" title="Gemma" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/gemma.png" title="Gemma Pulgarín Sauras" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="https://www.gemmapulgarinsauras.es/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/inkdastreet.png" class="img-fluid" alt="Inkdastreet">
+                <img src="assets/img/portfolio/inkdastreet.png" class="img-fluid" alt="Inkdastreet Tattoos">
                 <div class="portfolio-info">
                   <h4>Inkdastreet</h4>
                   <p>Proyecto web de Inkdastreet</p>
-                  <a href="assets/img/portfolio/inkdastreet.png" title="Inkdastreet" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/inkdastreet.png" title="Inkdastreet Tattoos" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="https://www.inkdastreet.com/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/innoclima.png" class="img-fluid" alt="Innoclima">
                 <div class="portfolio-info">
@@ -480,17 +567,17 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-wordpress">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/salvador.png" class="img-fluid" alt="Salvador Quesada">
+                <img src="assets/img/portfolio/salvador.png" class="img-fluid" alt="Estudio de Interpretación Cinematográfica Salvador Quesada">
                 <div class="portfolio-info">
                   <h4>Salvador</h4>
                   <p>Proyecto web de Salvador Quesada</p>
-                  <a href="assets/img/portfolio/salvador.png" title="Salvador" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="assets/img/portfolio/salvador.png" title="Estudio de Interpretación Cinematográfica Salvador Quesada" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="https://salvadorquesada.com/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/tere.png" class="img-fluid" alt="Tere Rasmussen">
                 <div class="portfolio-info">
@@ -502,7 +589,7 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/turbadepapel.png" class="img-fluid" alt="Turbadepapel">
                 <div class="portfolio-info">
@@ -514,7 +601,7 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sites">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-otros">
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/cleverclean.png" class="img-fluid" alt="CleverClean Lanzarote">
                 <div class="portfolio-info">
@@ -533,7 +620,7 @@
                   <h4>Lourdes Montiel Peñalver</h4>
                   <p>Proyecto web de Lourdes Montiel Peñalver</p>
                   <a href="assets/img/portfolio/lourdes.png" title="Lourdes Montiel Peñalver" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://www.lourdesmontielpenalber.com" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="https://www.lourdesmontielpenalver.com/" title="Más detalles" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -542,188 +629,6 @@
       </div>
     </section>
     <!-- ============================================= FINAL DE PORTAFOLIO ============================================= -->
-
-    <!-- ============================================= SERVICIOS ============================================= -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Servicios</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section>
-    <!-- ============================================= FINAL DE SERVICIOS ============================================= -->
-
-    <!-- ============================================= TESTIMONIOS ============================================= -->
-    <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Alberto Delgado Hernández</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section>
-    <!-- ============================================= FINAL DE TESTIMONIOS ============================================= -->
 
     <!-- ============================================= CONTACTO ============================================= -->
     <section id="contact" class="contact section">
@@ -750,62 +655,26 @@
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Escríbeme</h3>
-                  <p>albertodh1200@gmail.com</p>
-                </div>
+                <a href="mailto:albertodh1200@gmail.com" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                  <i class="bi bi-envelope flex-shrink-0"></i>
+                  <div style="margin-left: 10px;">
+                    <h3>Escríbeme</h3>
+                    <p style="margin: 0;">albertodh1200@gmail.com</p>
+                  </div>
+                </a>
               </div><!-- End Info Item -->
 
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d407345.1214851389!2d-14.020805!3d28.993963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f12.0!5e0!3m2!1ses!2ses!4v1691506000000!5m2!1ses!2ses"
-                width="100%"
-                height="270"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3185705.1956436397!2d-13.633!3d29.035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f1!5e0!3m2!1ses!2ses!4v1691506000000!5m2!1ses!2ses"
+              width="100%"
+              height="270"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-
-            </div>
           </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
+        </div>
 
         </div>
 
@@ -827,10 +696,13 @@
         <a href="mailto:albertodh1200@gmail.com" target="_blank" rel="noopener" title="Email" style="margin:0 8px;">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://www.linkedin.com/in/alberto-delgado-hernandez" target="_blank" rel="noopener" title="LinkedIn" style="margin:0 8px;">
-          <i class="fab fa-linkedin"></i>
+        <a href="https://www.instagram.com/alber_skateland/" target="_blank" rel="noopener" title="Instagram" style="margin:0 8px;">
+          <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://github.com/albertodh1200" target="_blank" rel="noopener" title="GitHub" style="margin:0 8px;">
+        <a href="https://www.facebook.com/profile.php?id=61575299738661/" target="_blank" rel="noopener" title="Facebook" style="margin:0 8px;">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://github.com/AlbertoDelgadoH" target="_blank" rel="noopener" title="GitHub" style="margin:0 8px;">
           <i class="fab fa-github"></i>
         </a>
       </div>
