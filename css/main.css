@@ -1277,3 +1277,12 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+
+.info-item a {
+  color: inherit;         /* Hereda el color del texto padre */
+  text-decoration: none;  /* Quita el subrayado */
+}
+
+.info-item a:hover {
+  text-decoration: underline; /* Opción: solo subrayar al pasar el ratón */
+}
