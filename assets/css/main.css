@@ -842,13 +842,26 @@ section,
   }
 }
 
+/*--------------------------------------------------------------
+# Portfolio Content Section
+--------------------------------------------------------------*/
+
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
 }
 
-.portfolio .portfolio-content img {
-  transition: 0.3s;
+.portfolio-content img {
+  width: 100%;               /* Que ocupe todo el ancho del contenedor */
+  height: 200px;             /* Altura fija */
+  object-fit: cover;         /* Recorta la imagen sin deformarla */
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-content:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .portfolio .portfolio-content .portfolio-info {
@@ -910,6 +923,68 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------
+# Carrusel tipo río de capturas
+--------------------------------------------------------------*/
+
+.carousel-flow {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(250px * 16); /* ajusta al número total de imágenes */
+  animation: scrollFlow 25s linear infinite;
+}
+
+.carousel-track img {
+  width: 250px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Animación suave tipo río */
+@keyframes scrollFlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pausar al pasar el ratón */
+.carousel-flow:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+/* Ajustes responsive */
+@media (max-width: 992px) {
+  .carousel-track img {
+    width: 200px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-track img {
+    width: 150px;
+    height: 300px;
+  }
 }
 
 /*--------------------------------------------------------------
