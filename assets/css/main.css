@@ -929,6 +929,13 @@ section,
 # Carrusel tipo río de capturas
 --------------------------------------------------------------*/
 
+:root{
+  --card-w: 250px;     /* ancho imagen desktop */
+  --card-h: 500px;     /* alto imagen desktop  */
+  --gap: 20px;         /* separación entre imágenes */
+  --dur: 42s;          /* velocidad del scroll (más alto = más lento) */
+}
+
 .carousel-flow {
   overflow: hidden;
   position: relative;
@@ -939,53 +946,52 @@ section,
 
 .carousel-track {
   display: flex;
-  width: calc(250px * 16); /* ajusta al número total de imágenes */
-  animation: scrollFlow 25s linear infinite;
+  gap: var(--gap);
+  width: max-content;              /* que mida lo que necesite */
+  will-change: transform;
+  animation: scrollFlow var(--dur) linear infinite;
 }
 
 .carousel-track img {
-  width: 250px;
-  height: 500px;
+  width: var(--card-w);
+  height: var(--card-h);
   object-fit: cover;
   border-radius: 12px;
-  margin: 0 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .carousel-track img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
 
-/* Animación suave tipo río */
+/* Recorremos justo la mitad porque el contenido está duplicado */
 @keyframes scrollFlow {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Pausar al pasar el ratón */
-.carousel-flow:hover .carousel-track {
-  animation-play-state: paused;
+.carousel-flow:hover .carousel-track { animation-play-state: paused; }
+
+/* Accesibilidad: respeta reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { animation: none; transform: none; }
 }
 
-/* Ajustes responsive */
+/* Responsive */
 @media (max-width: 992px) {
-  .carousel-track img {
-    width: 200px;
-    height: 380px;
-  }
+  :root { --card-w: 200px; --card-h: 380px; }
+}
+@media (max-width: 576px) {
+  :root { --card-w: 150px; --card-h: 300px; }
 }
 
-@media (max-width: 576px) {
-  .carousel-track img {
-    width: 150px;
-    height: 300px;
-  }
-}
+/* ⚠️ IMPORTANTE: elimina estilos del modo 'fade' antiguo */
+.carrusel img,
+@keyframes fade { /* eliminado intencionalmente */ }
+
 
 /*--------------------------------------------------------------
 # Services Section
