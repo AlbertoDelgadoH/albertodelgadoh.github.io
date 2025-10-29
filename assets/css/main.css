@@ -930,28 +930,38 @@ section,
 --------------------------------------------------------------*/
 
 :root{
-  --card-w: 250px;     /* ancho imagen desktop */
-  --card-h: 500px;     /* alto imagen desktop  */
-  --gap: 20px;         /* separación entre imágenes */
-  --dur: 42s;          /* velocidad del scroll (más alto = más lento) */
+  --card-w: 250px;
+  --card-h: 500px;
+  --gap: 20px;
+  --dur: 25s;
 }
 
 .carousel-flow {
   overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .carousel-track {
   display: flex;
   gap: var(--gap);
-  width: max-content;              /* que mida lo que necesite */
-  will-change: transform;
+  width: max-content;
   animation: scrollFlow var(--dur) linear infinite;
+  will-change: transform;
+  position: relative;
 }
 
+/* 🪞 Clon visual automático (dobla el contenido sin repetir en HTML) */
+.carousel-track::after {
+  content: "";
+  display: flex;
+  gap: var(--gap);
+  width: 100%;
+}
+
+/* 🎴 Tarjetas / Capturas */
 .carousel-track img {
   width: var(--card-w);
   height: var(--card-h);
@@ -959,28 +969,32 @@ section,
   border-radius: 12px;
   flex-shrink: 0;
   transition: transform .3s ease, box-shadow .3s ease;
+  user-select: none;
 }
 
+/* 🎚️ Efectos */
 .carousel-track img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* Recorremos justo la mitad porque el contenido está duplicado */
+/* ✅ Movimiento continuo infinito sin cortes */
 @keyframes scrollFlow {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from   { transform: translateX(0); }
+  to     { transform: translateX(-50%); }
 }
 
-/* Pausar al pasar el ratón */
-.carousel-flow:hover .carousel-track { animation-play-state: paused; }
+/* 🛑 Pausa con hover */
+.carousel-flow:hover .carousel-track {
+  animation-play-state: paused;
+}
 
-/* Accesibilidad: respeta reducir movimiento */
+/* ♿ Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .carousel-track { animation: none; transform: none; }
 }
 
-/* Responsive */
+/* 📱 Responsive */
 @media (max-width: 992px) {
   :root { --card-w: 200px; --card-h: 380px; }
 }
@@ -988,9 +1002,6 @@ section,
   :root { --card-w: 150px; --card-h: 300px; }
 }
 
-/* ⚠️ IMPORTANTE: elimina estilos del modo 'fade' antiguo */
-.carrusel img,
-@keyframes fade { /* eliminado intencionalmente */ }
 
 
 /*--------------------------------------------------------------
